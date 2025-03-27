@@ -55,20 +55,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser(Long userId) {
-
-
-
         User user = userRepository.findById(userId)
                 .orElseThrow(()-> new ResourceNotFoundException
                         ("User with the given id is not available"
                                 +userId));
 
-
-
-
-
-       ArrayList forObject =  restTemplate.getForObject("http://localhost:8083/api/rating/users/1", ArrayList.class);
+       ArrayList<Rating> forObject =  restTemplate.getForObject("http://RATINGSERVICE/api/rating/users/"+user.getUserId(), ArrayList.class);
        logger.info("The rating asked from the user service {}",forObject);
+       user.setRating(forObject);
                  return user;
 
     }

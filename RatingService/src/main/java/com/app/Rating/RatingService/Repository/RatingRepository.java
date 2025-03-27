@@ -10,7 +10,7 @@ import java.util.List;
 public interface RatingRepository extends JpaRepository<Rating,Long> {
 
 
-    Rating findByUserId (Long UserID);
-    Rating findByHotelId(Long UserID);
+    List<Rating> findByUserId (Long UserID);
+    List<Rating> findByHotelId(Long UserID);
 
 }

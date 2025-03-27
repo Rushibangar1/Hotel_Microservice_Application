@@ -17,8 +17,11 @@ public interface RatingService {
     List<Rating> getRatings();
 
     //get all by UserId
-     Rating getRatingByUserId(Long userId);
+     List<Rating> getRatingByUserId(Long userId);
 
     //get all by hotel
-     Rating getRatingByHotelId(Long hotelId);
+     List<Rating>getRatingByHotelId(Long hotelId);
 }
+//rating need to list
+//erro in fetching the rating via uservice
+//

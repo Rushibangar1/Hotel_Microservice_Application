@@ -29,12 +29,12 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public Rating getRatingByUserId(Long userId) {
+    public List<Rating> getRatingByUserId(Long userId) {
         return ratingRepository.findByUserId(userId);
     }
 
     @Override
-    public Rating getRatingByHotelId(Long hotelId) {
+    public List<Rating> getRatingByHotelId(Long hotelId) {
         return ratingRepository.findByHotelId(hotelId);
     }
 
