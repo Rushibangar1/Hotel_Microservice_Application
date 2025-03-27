@@ -4,6 +4,10 @@ package com.app.hotel.HotelService.Controller;
 
 import com.app.hotel.HotelService.Model.Hotel;
 import com.app.hotel.HotelService.Service.HotelService;
+import com.app.hotel.HotelService.Service.Impl.ServiceImpl;
+import org.slf4j.ILoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,14 +19,18 @@ import java.util.List;
 public class HotelController {
 
     private final HotelService hotelService;
+    private static final Logger log = LoggerFactory.getLogger(HotelController.class);
 
     public HotelController(HotelService hotelService) {
         this.hotelService = hotelService;
     }
 
 
-    @PostMapping("createHotel")
+
+
+    @PostMapping("/createHotel")
     public ResponseEntity<Hotel> createHotel(@RequestBody Hotel hotel){
+        log.info("The payload recieved is {}",hotel);
         return ResponseEntity.status(HttpStatus.CREATED).body(hotelService.create(hotel));
     }
 
@@ -31,7 +39,7 @@ public class HotelController {
         return ResponseEntity.status(HttpStatus.FOUND).body(hotelService.get(hotelId));
     }
 
-    @GetMapping("GetAll")
+    @GetMapping("/GetAll")
     public ResponseEntity<List<Hotel>> getAllHotel(){
         return ResponseEntity.status(HttpStatus.FOUND).body(hotelService.getAll());
     }

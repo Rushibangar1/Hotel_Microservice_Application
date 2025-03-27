@@ -22,16 +22,13 @@ public class RatingController {
     }
 
 
-
-
-
-    @PostMapping
+    @PostMapping("/giveRating")
     public ResponseEntity<Rating> create(@RequestBody Rating rating) {
         return ResponseEntity.status(HttpStatus.CREATED).body(ratingService.create(rating));
     }
 
     //get all
-    @GetMapping
+    @GetMapping("/getAllRatings")
     public ResponseEntity<List<Rating>> getRatings() {
         return ResponseEntity.ok(ratingService.getRatings());
     }
