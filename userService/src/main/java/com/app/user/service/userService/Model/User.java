@@ -34,4 +34,11 @@ public class User {
     @Transient
     private List<Rating> rating = new ArrayList<>();
 
+    public List<Rating> getRating() {
+        return rating;
+    }
+
+    public void setRating(List<Rating> rating) {
+        this.rating = rating;
+    }
 }
