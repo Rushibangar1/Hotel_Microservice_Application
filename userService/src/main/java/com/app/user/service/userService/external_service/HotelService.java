@@ -1,10 +1,8 @@
 package com.app.user.service.userService.external_service;
 
 
-import com.app.user.service.userService.Model.Hotel;
+import com.app.user.service.userService.ResponseDto.Hotel_Response_Dto;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -14,7 +12,7 @@ public interface HotelService {
 
 
     @GetMapping("/getHotel/{hotelId}")
-    Hotel getHotel(@PathVariable("hotelId") String hotelId);
+    Hotel_Response_Dto getHotel(@PathVariable("hotelId") String hotelId);
 
 
 }

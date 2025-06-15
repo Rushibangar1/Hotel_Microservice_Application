@@ -1,6 +1,7 @@
 package com.app.Rating.RatingService.Service;
 
 import com.app.Rating.RatingService.Model.Rating;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public interface RatingService {
     List<Rating> getRatings();
 
     //get all by UserId
-     List<Rating> getRatingByUserId(Long userId);
+     ResponseEntity<List<?>> getRatingByUserId(Long userId);
 
     //get all by hotel
      List<Rating>getRatingByHotelId(Long hotelId);

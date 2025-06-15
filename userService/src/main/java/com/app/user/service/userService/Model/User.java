@@ -1,12 +1,12 @@
 package com.app.user.service.userService.Model;
 
 
+import com.app.user.service.userService.ResponseDto.Rating_Response_Dto;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -32,13 +32,13 @@ public class User {
     private String about;
 
     @Transient
-    private List<Rating> rating = new ArrayList<>();
+    private List<Rating_Response_Dto> rating = new ArrayList<>();
 
-    public List<Rating> getRating() {
+    public List<Rating_Response_Dto> getRating() {
         return rating;
     }
 
-    public void setRating(List<Rating> rating) {
+    public void setRating(List<Rating_Response_Dto> rating) {
         this.rating = rating;
     }
 }

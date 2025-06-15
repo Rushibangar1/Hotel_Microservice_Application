@@ -15,11 +15,11 @@ import java.util.List;
 @Slf4j
 public class UserController {
 
-    private final UserRepository userRepository;
+
     private final UserService userService;
 
-    public UserController(UserRepository userRepository, UserService userService) {
-        this.userRepository = userRepository;
+    public UserController(UserService userService) {
+
         this.userService = userService;
     }
 
@@ -37,6 +37,7 @@ public class UserController {
         log.info("Retrived user info {}",user);
         return ResponseEntity.ok(user);
     }
+
 
     @GetMapping("/getAllUser")
     public ResponseEntity<List<User>> getAllUser(){

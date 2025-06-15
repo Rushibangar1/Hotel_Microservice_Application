@@ -44,15 +44,9 @@ public class RatingController {
 
     // Endpoint to get ratings by user ID
     @GetMapping("/users/{userId}")
-    public ResponseEntity<List<Rating>> getRatingsByUserId(@PathVariable Long userId) {
+    public ResponseEntity<List<?>> getRatingsByUserId(@PathVariable Long userId) {
         log.info("Received request to fetch ratings for user with ID: {}", userId);  // Log the userId
-        List<Rating> ratings = ratingService.getRatingByUserId(userId);
-        if (ratings.isEmpty()) {
-            log.warn("No ratings found for user with ID: {}", userId);  // Log warning if no ratings are found
-        } else {
-            log.info("Fetched {} ratings for user with ID: {}", ratings.size(), userId);  // Log the number of ratings fetched
-        }
-        return ResponseEntity.ok(ratings);
+        return ratingService.getRatingByUserId(userId);
     }
 
     // Endpoint to get ratings by hotel ID
